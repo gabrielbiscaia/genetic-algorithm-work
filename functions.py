@@ -55,8 +55,12 @@ def chanceMutation():
 
 def checkHighestFitness(array_fitness):
     highest_fitness = 0
-    for fitnessScore in array_fitness:
+    index_highest_fitness = 0
+    for i, fitnessScore in enumerate(array_fitness):
         if fitnessScore > highest_fitness:
             highest_fitness = fitnessScore
+            index_highest_fitness = i
 
-    return highest_fitness
+    return highest_fitness, index_highest_fitness
+
+
