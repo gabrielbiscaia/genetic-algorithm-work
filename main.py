@@ -31,7 +31,10 @@ while (highest_fitness != max_length_string) and (current_generation != max_gene
     son1, son2 = chanceMutation(son1, son2)
 
     # atualiza a população com os 2 novos filhos removendo as 2 strings com piores fitness
-    removeTheWeakest(son1, son2)
+    array_string = removeTheWeakest(son1, son2, array_string, array_fitness)
+
+    # retorna o array com todos os scores do fitness sendo o maior score possível o tamanho da string informada pelo usuario
+    array_fitness = defineFitnessArray(user_string, array_string)
 
     highest_fitness, index_highest_fitness = checkHighestFitness(array_fitness)
     current_generation += 1

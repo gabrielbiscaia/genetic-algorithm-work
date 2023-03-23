@@ -102,5 +102,18 @@ def tournamentSelection(array_string, array_fitness):
     return parent1, parent2
 
 
-def removeTheWeakest(son1, son2):
-    print("Entrou2")
+def removeTheWeakest(son1, son2, array_string, array_fitness):
+    # Obter índices das duas strings com piores valores fitness
+    weakest_indices = np.argsort(array_fitness)[:2]
+
+    # Remover as duas strings com piores valores fitness
+    array_string = np.delete(array_string, weakest_indices)
+
+    # Remover os dois piores valores fitness
+    array_fitness = np.delete(array_fitness, weakest_indices)
+
+    # Adicionar os dois novos filhos no lugar das removidas
+    array_string = np.insert(array_string, weakest_indices[0], son1)
+    array_string = np.insert(array_string, weakest_indices[1], son2)
+
+    return array_string
