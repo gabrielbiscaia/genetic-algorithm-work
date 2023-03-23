@@ -1,9 +1,23 @@
-from functions import generateInitialPopulation, defineFitnessArray, crossover, chanceMutation
+from functions import generateInitialPopulation, defineFitnessArray, crossover, chanceMutation, checkHighestFitness
 
 print("A partir das letras do alfabeto")
 user_string = input("Digite uma frase: ")
-# pega o tamanho do array que o usuario digitou
-max_lengeth_array = len(user_string)
+
+# pega o tamanho da string que o usuario digitou
+max_length_string = len(user_string)
+
 # gera a populção inicial de frases
-arrays_population = generateInitialPopulation(max_lengeth_array)
-defineFitnessArray(user_string, arrays_population)
+string_population = generateInitialPopulation(max_length_string)
+
+# retorna o array com todos os scores do fitness sendo o maior score possível o tamanho da string informada pelo usuario
+array_fitness = defineFitnessArray(user_string, string_population)
+
+# retorna qual é o maior valor do fitness
+highest_fitness = checkHighestFitness(array_fitness)
+print(highest_fitness)
+
+max_generations = 10000
+current_generation = 0
+
+# enquanto a palavra não for igual a do usuário ou enquanto a geração atual não for igual ao máximo de gerações vai rodar o código baixo
+# while (highest_fitness != max_length_string) or (current_generation != max_generations):
