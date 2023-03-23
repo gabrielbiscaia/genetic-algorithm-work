@@ -12,7 +12,7 @@ array_string = generateInitialPopulation(max_length_string)
 # retorna o array com todos os scores do fitness sendo o maior score possível o tamanho da string informada pelo usuario
 array_fitness = defineFitnessArray(user_string, array_string)
 
-# retorna qual é o maior valor do fitness
+# retorna qual é o maior valor do fitness e o index desse maior valor
 highest_fitness, index_highest_fitness = checkHighestFitness(array_fitness)
 
 max_generations = 10000
