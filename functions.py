@@ -58,8 +58,26 @@ def crossover(parent1, parent2):
     return child1, child2
 
 
-def chanceMutation():
-    print("teste")
+def chanceMutation(son1, son2):
+    # inicializa os filhos mutados
+    mutated_son1 = ''
+    mutated_son2 = ''
+
+    for char in son1:
+        if random.uniform(0, 1) < mutation_rate:
+            mutated_son1 += random.choice(
+                "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        else:
+            mutated_son1 += char
+
+    for char in son2:
+        if random.uniform(0, 1) < mutation_rate:
+            mutated_son2 += random.choice(
+                "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        else:
+            mutated_son2 += char
+
+    return mutated_son1, mutated_son2
 
 
 def checkHighestFitness(array_fitness):
@@ -74,7 +92,7 @@ def checkHighestFitness(array_fitness):
 
 
 def tournamentSelection(array_string, array_fitness):
-     # obter os índices dos dois maiores valores fitness
+    # obter os índices dos dois maiores valores fitness
     top_indices = np.argsort(array_fitness)[-2:]
 
     # obter as duas palavras correspondentes
