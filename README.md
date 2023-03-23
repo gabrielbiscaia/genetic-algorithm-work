@@ -1,4 +1,4 @@
-##Segundo Trabalho Modelagem e Otimização de Algoritmos
+# Segundo Trabalho Modelagem e Otimização de Algoritmos
 
 Esse trabalho consiste na criação de um algoritmo genético que resolva o problema de recombinação da cadeia de caracteres.
 
