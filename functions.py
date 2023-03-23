@@ -46,8 +46,16 @@ def defineFitnessArray(user_string, array_strings):
     return fitness
 
 
-def crossover():
-    print("teste")
+def crossover(parent1, parent2):
+    # escolhe um ponto de corte aleatório
+    crossover_point = random.randint(1, len(parent1) - 1)
+
+    # realiza o crossover
+    child1 = parent1[:crossover_point] + parent2[crossover_point:]
+    child2 = parent2[:crossover_point] + parent1[crossover_point:]
+
+    # retorna os dois filhos gerados
+    return child1, child2
 
 
 def chanceMutation():
