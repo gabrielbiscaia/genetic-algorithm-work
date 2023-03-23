@@ -64,7 +64,7 @@ def checkHighestFitness(array_fitness):
     return highest_fitness,
 
 
-def tournamentSelection(array_string):
+#def tournamentSelection(array_string):
 
 
-def removeTheWeakest(son1, son2):
+#def removeTheWeakest(son1, son2):
