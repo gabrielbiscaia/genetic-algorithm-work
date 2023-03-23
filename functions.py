@@ -61,6 +61,10 @@ def checkHighestFitness(array_fitness):
             highest_fitness = fitnessScore
             index_highest_fitness = i
 
-    return highest_fitness, index_highest_fitness
+    return highest_fitness,
 
 
+def tournamentSelection(array_string):
+
+
+def removeTheWeakest(son1, son2):
