@@ -22,7 +22,7 @@ current_generation = 0
 while (highest_fitness != max_length_string) and (current_generation != max_generations):
 
     # seleciona os melhores pais através da seleção de torneio
-    parent1, parent2 = tournamentSelection(array_string)
+    parent1, parent2 = tournamentSelection(array_string, array_fitness)
 
     # faz o crossover dos pais e gera dois filhos
     son1, son2 = crossover(parent1, parent2)
