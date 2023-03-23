@@ -1,5 +1,4 @@
 import random
-import string
 
 population_size = 20
 max_generations = 10000
@@ -8,9 +7,9 @@ mutation_rate = 0.01
 
 def generateInitialPopulation(array_population_lenght):
     alphabet = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    arrays = []
+    array_strings = []
 
-    # vai fazer N arrays
+    # vai fazer N strings
     for i in range(population_size):
         array = []
 
@@ -19,26 +18,26 @@ def generateInitialPopulation(array_population_lenght):
             letter = random.choice(alphabet)
             array.append(letter)
             string_concatenated = ''.join(array)
-        arrays.append(string_concatenated)
+        array_strings.append(string_concatenated)
 
-    print(arrays)
+    print(array_strings)
 
-    return arrays
+    return array_strings
 
 
-def defineFitnessArray(user_array, arrays):
+def defineFitnessArray(user_string, array_strings):
     # o valor de fitness é a quantidade de letras iguais que a string tem com a frase do usuario
     fitness = []
 
-    # percorre cada array da população
-    for string in arrays:
+    # percorre cada string da população
+    for string in array_strings:
         letters_equal = 0
 
-        # percorre cada letra do array
+        # percorre cada letra da string
         for i in range(len(string)):
 
             # se a string na posição i for igual a frase do usuario na posição i então fitness += 1
-            if string[i] == user_array[i]:
+            if string[i] == user_string[i]:
                 letters_equal += 1
 
         fitness.append(letters_equal)
