@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 population_size = 20
 mutation_rate = 0.01
@@ -64,7 +65,16 @@ def checkHighestFitness(array_fitness):
     return highest_fitness, index_highest_fitness
 
 
-# def tournamentSelection(array_string):
+def tournamentSelection(array_string, array_fitness):
+     # obter os índices dos dois maiores valores fitness
+    top_indices = np.argsort(array_fitness)[-2:]
+
+    # obter as duas palavras correspondentes
+    parent1 = array_string[top_indices[0]]
+    parent2 = array_string[top_indices[1]]
+
+    return parent1, parent2
 
 
-# def removeTheWeakest(son1, son2):
+def removeTheWeakest(son1, son2):
+    print("Entrou2")
