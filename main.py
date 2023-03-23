@@ -14,13 +14,14 @@ array_fitness = defineFitnessArray(user_string, string_population)
 
 # retorna qual é o maior valor do fitness
 highest_fitness, index_highest_fitness = checkHighestFitness(array_fitness)
-print(highest_fitness)
 
 max_generations = 10000
 current_generation = 0
 
-# enquanto a palavra não for igual a do usuário ou enquanto a geração atual não for igual ao máximo de gerações vai rodar o código baixo
-# while (highest_fitness != max_length_string) or (current_generation != max_generations):
-#     highest_fitness = checkHighestFitness(array_fitness)
-#     current_generation = +1
-#     print("Geração ", current_generation, ", melhor string: ")
+# enquanto a palavra não for igual a do usuário e enquanto a geração atual não for igual ao máximo de gerações vai rodar o código baixo
+while (highest_fitness != max_length_string) and (current_generation != max_generations):
+
+    highest_fitness, index_highest_fitness = checkHighestFitness(array_fitness)
+    current_generation += 1
+    print("Geração ", current_generation, ", melhor string: ",
+          string_population[index_highest_fitness])
