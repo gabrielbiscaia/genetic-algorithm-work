@@ -1,7 +1,6 @@
 import random
 
 population_size = 20
-max_generations = 10000
 mutation_rate = 0.01
 
 
@@ -52,3 +51,12 @@ def crossover():
 
 def chanceMutation():
     print("teste")
+
+
+def checkHighestFitness(array_fitness):
+    highest_fitness = 0
+    for fitnessScore in array_fitness:
+        if fitnessScore > highest_fitness:
+            highest_fitness = fitnessScore
+
+    return highest_fitness
