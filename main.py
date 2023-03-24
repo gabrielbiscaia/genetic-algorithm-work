@@ -39,4 +39,4 @@ while (highest_fitness != max_length_string) and (current_generation != max_gene
     highest_fitness, index_highest_fitness = checkHighestFitness(array_fitness)
     current_generation += 1
     print("Geração ", current_generation, ", melhor string: ",
-        array_string[index_highest_fitness])
+            array_string[index_highest_fitness])

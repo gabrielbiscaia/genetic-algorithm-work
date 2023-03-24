@@ -42,7 +42,6 @@ def defineFitnessArray(user_string, array_strings):
 
         fitness.append(letters_equal)
 
-    print(fitness)
     return fitness
 
 
