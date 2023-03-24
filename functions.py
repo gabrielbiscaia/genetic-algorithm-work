@@ -1,8 +1,8 @@
 import random
 import numpy as np
 
-population_size = 20
-mutation_rate = 0.01
+population_size = 100
+mutation_rate = 0.1
 
 
 def generateInitialPopulation(array_population_lenght):
@@ -110,7 +110,14 @@ def removeTheWeakest(son1, son2, array_string, array_fitness):
     array_fitness = np.delete(array_fitness, weakest_indices)
 
     # Adicionar os dois novos filhos no lugar das removidas
+    if(len(array_string)<=weakest_indices[1]):
+        array_string=np.append(array_string, "")  
+
     array_string = np.insert(array_string, weakest_indices[1], son1)
+
+    if(len(array_string)<=weakest_indices[0]):
+        array_string=np.append(array_string, "")  
+    
     array_string = np.insert(array_string, weakest_indices[0], son2)
 
     return array_string
