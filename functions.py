@@ -20,8 +20,6 @@ def generateInitialPopulation(array_population_lenght):
             string_concatenated = ''.join(array)
         array_strings.append(string_concatenated)
 
-    print(array_strings)
-
     return array_strings
 
 
