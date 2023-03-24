@@ -113,7 +113,7 @@ def removeTheWeakest(son1, son2, array_string, array_fitness):
     array_fitness = np.delete(array_fitness, weakest_indices)
 
     # Adicionar os dois novos filhos no lugar das removidas
-    array_string = np.insert(array_string, weakest_indices[0], son1)
-    array_string = np.insert(array_string, weakest_indices[1], son2)
+    array_string = np.insert(array_string, weakest_indices[1], son1)
+    array_string = np.insert(array_string, weakest_indices[0], son2)
 
     return array_string
