@@ -1,4 +1,4 @@
-from functions import mainWithTournment, mainWithRandom
+from functions import mainWithTournament, mainWithRandom
 
 print("A partir das letras do alfabeto")
 user_string = input("Digite uma frase: ")
@@ -13,7 +13,7 @@ index_highest_fitness = 0
 current_generation = 0
 
 if user_choice == '1':
-    array_string, index_highest_fitness, current_generation = mainWithTournment(
+    array_string, index_highest_fitness, current_generation = mainWithTournament(
         user_string)
 elif user_choice == '2':
     array_string, index_highest_fitness, current_generation = mainWithRandom(

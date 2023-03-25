@@ -1,6 +1,8 @@
 import random
 import numpy as np
+import random
 
+# configurações inicias
 population_size = 100
 mutation_rate = 0.1
 max_generations = 10000
@@ -100,6 +102,21 @@ def tournamentSelection(array_string, array_fitness):
     return parent1, parent2
 
 
+def randomSelection(array_string):
+    # pega aleatoriamente 2 individuos do array_string
+    parent1 = random.choice(array_string)
+    parent2 = random.choice(array_string)
+
+    while parent1 == '':
+        parent1 = random.choice(array_string)
+
+    # se os 2 pais forem iguais ele pega outro pai2
+    while parent2 == '' or parent1 == parent2:
+        parent2 = random.choice(array_string)
+
+    return parent1, parent2
+
+
 def removeTheWeakest(son1, son2, array_string, array_fitness):
     # Obter índices das duas strings com piores valores fitness
     weakest_indices = np.argsort(array_fitness)[:2]
@@ -124,7 +141,7 @@ def removeTheWeakest(son1, son2, array_string, array_fitness):
     return array_string
 
 
-def mainWithTournment(user_string):
+def mainWithTournament(user_string):
     current_generation = 0
 
     # pega o tamanho da string que o usuario digitou
@@ -167,5 +184,44 @@ def mainWithTournment(user_string):
     return array_string, index_highest_fitness, current_generation
 
 
-def mainWithRandom():
-    print("Entrou")
+def mainWithRandom(user_string):
+    current_generation = 0
+
+    # pega o tamanho da string que o usuario digitou
+    max_length_string = len(user_string)
+
+    # gera a populção inicial de frases
+    array_string = generateInitialPopulation(max_length_string)
+
+    # retorna o array com todos os scores do fitness sendo o maior score possível o tamanho da string informada pelo usuario
+    array_fitness = defineFitnessArray(user_string, array_string)
+
+    # retorna qual é o maior valor do fitness e o index desse maior valor
+    highest_fitness, index_highest_fitness = checkHighestFitness(array_fitness)
+
+    # enquanto a palavra não for igual a do usuário e enquanto a geração atual não for igual ao máximo de gerações vai rodar o código baixo
+    while (highest_fitness != max_length_string) and (current_generation != max_generations):
+
+        # seleciona os melhores pais através da seleção de torneio
+        parent1, parent2 = randomSelection(array_string)
+
+        # faz o crossover dos pais e gera dois filhos
+        son1, son2 = crossover(parent1, parent2)
+
+        # ve se algum dos dois filhos tem alguma letra mutada
+        son1, son2 = chanceMutation(son1, son2)
+
+        # atualiza a população com os 2 novos filhos removendo as 2 strings com piores fitness
+        array_string = removeTheWeakest(
+            son1, son2, array_string, array_fitness)
+
+        # retorna o array com todos os scores do fitness sendo o maior score possível o tamanho da string informada pelo usuario
+        array_fitness = defineFitnessArray(user_string, array_string)
+
+        highest_fitness, index_highest_fitness = checkHighestFitness(
+            array_fitness)
+        current_generation += 1
+        print("Geração ", current_generation, ", melhor string: ",
+              array_string[index_highest_fitness])
+
+    return array_string, index_highest_fitness, current_generation
