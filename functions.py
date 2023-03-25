@@ -6,7 +6,6 @@ mutation_rate = 0.1
 max_generations = 10000
 
 
-
 def generateInitialPopulation(array_population_lenght):
     alphabet = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     array_strings = []
@@ -112,17 +111,18 @@ def removeTheWeakest(son1, son2, array_string, array_fitness):
     array_fitness = np.delete(array_fitness, weakest_indices)
 
     # Adicionar os dois novos filhos no lugar das removidas
-    if(len(array_string)<=weakest_indices[1]):
-        array_string=np.append(array_string, "")  
+    if (len(array_string) <= weakest_indices[1]):
+        array_string = np.append(array_string, "")
 
     array_string = np.insert(array_string, weakest_indices[1], son1)
 
-    if(len(array_string)<=weakest_indices[0]):
-        array_string=np.append(array_string, "")  
-    
+    if (len(array_string) <= weakest_indices[0]):
+        array_string = np.append(array_string, "")
+
     array_string = np.insert(array_string, weakest_indices[0], son2)
 
     return array_string
+
 
 def mainWithTournment(user_string):
     current_generation = 0
@@ -152,18 +152,20 @@ def mainWithTournment(user_string):
         son1, son2 = chanceMutation(son1, son2)
 
         # atualiza a população com os 2 novos filhos removendo as 2 strings com piores fitness
-        array_string = removeTheWeakest(son1, son2, array_string, array_fitness)
+        array_string = removeTheWeakest(
+            son1, son2, array_string, array_fitness)
 
         # retorna o array com todos os scores do fitness sendo o maior score possível o tamanho da string informada pelo usuario
         array_fitness = defineFitnessArray(user_string, array_string)
 
-        highest_fitness, index_highest_fitness = checkHighestFitness(array_fitness)
+        highest_fitness, index_highest_fitness = checkHighestFitness(
+            array_fitness)
         current_generation += 1
         print("Geração ", current_generation, ", melhor string: ",
-        array_string[index_highest_fitness])
+              array_string[index_highest_fitness])
 
-    print("**************************************************")
-    print("Algoritmo finalizado, melhor string: ",
-        array_string[index_highest_fitness],
-        "\nEncontrado na geração:", current_generation)
-    print("**************************************************")
+    return array_string, index_highest_fitness, current_generation
+
+
+def mainWithRandom():
+    print("Entrou")
