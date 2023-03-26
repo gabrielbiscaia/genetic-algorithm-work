@@ -175,6 +175,7 @@ def mainWithTournament(user_string):
         # retorna o array com todos os scores do fitness sendo o maior score possível o tamanho da string informada pelo usuario
         array_fitness = defineFitnessArray(user_string, array_string)
 
+        # confere qual é o maior fitness do "arrayfitness"
         highest_fitness, index_highest_fitness = checkHighestFitness(
             array_fitness)
         current_generation += 1
@@ -218,6 +219,7 @@ def mainWithRandom(user_string):
         # retorna o array com todos os scores do fitness sendo o maior score possível o tamanho da string informada pelo usuario
         array_fitness = defineFitnessArray(user_string, array_string)
 
+        # confere qual é o maior fitness do "arrayfitness"
         highest_fitness, index_highest_fitness = checkHighestFitness(
             array_fitness)
         current_generation += 1
