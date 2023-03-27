@@ -3,8 +3,8 @@ import numpy as np
 import random
 
 # configurações inicias
-population_size = 100
-mutation_rate = 0.1
+population_size = 50
+mutation_rate = 0.2
 max_generations = 10000
 
 
